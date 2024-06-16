@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock title %}
+
+{% block body %}
+{% include "navbar.html" %}
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+       {% include "sidebar.html" %}
+        <div class="col py-3">
+           {% include "createProjectForm.html" %}
+           
+        </div>
+           
+        
+    </div>
+{% endblock body %}

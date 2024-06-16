@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+   {% block body %}{% endblock body %}
+    <script>
+         function formatDate(dateString) {
+            // Parse the date string into a Date object
+            var date = new Date(dateString);
+            
+            // Extract the day, month, and year
+            var day = String(date.getDate()).padStart(2, '0'); // Get day and pad with leading zero if needed
+            var month = String(date.getMonth() + 1).padStart(2, '0'); // Get month (0-11) and pad with leading zero if needed
+            var year = date.getFullYear(); // Get full year
+            
+            // Format the date as dd/mm/yyyy
+            var formattedDate = `${day}/${month}/${year}`;
+            
+            return formattedDate;
+        }
+
+        function handleShowModal() {
+            const currentDate = new Date();
+            let dueDate = new Date();
+            dueDate.setDate(dueDate.getDate() + 2)
+
+            const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            const closeButton = document.getElementById('closeButton')
+
+            if (dueDate < currentDate) {
+                const dueDateSpan = document.getElementById('dueDate')
+                dueDateSpan.textContent= formatDate(dueDate)
+                
+                closeButton.classList.add('d-none')
+                myModal.show(); 
+            } else {
+                myModal.show();
+            }
+        }
+        window.onload = handleShowModal
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

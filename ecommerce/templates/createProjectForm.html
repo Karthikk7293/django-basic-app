@@ -1,0 +1,45 @@
+<div class="container">
+    <div id="login-row" class="row justify-content-center align-items-center">
+        <div id="login-column" class="col-md-6">
+            <div id="login-box" class="col-md-12">
+                <form id="login-form" class="form" name="RegForm" onsubmit="validateForm(event)" >
+                    <h3 class="text-center text-info">Create Project </h3>
+                    <div class="form-group">
+                        <label for="username" class="text-info">name:</label><br>
+                        <input type="text" name="username" id="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="text-info">Username:</label><br>
+                        <input type="text" name="username" id="username" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="text-info">Password:</label><br>
+                        <input type="text" name="password" id="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="text-info">Input Links:</label><br>
+                        <div id="input-container">
+                        </div>
+                        <button id="add-input" type="button" class="border-0 bg-transparent ">
+                            <img width="30" class="" src="https://png.pngtree.com/png-vector/20230410/ourmid/pngtree-add-button-vector-png-image_6697932.png" alt="">
+                        </button>
+                        {% comment %} <button id="get-values">Get Values</button> {% endcomment %}
+                    </div>
+                    
+                    <div class="form-group  text-center my-3">
+                        <button type="reset" class="border btn btn-danger btn-sm px-5">Cancel</button>
+                        <button type="submit " class="border btn btn-success btn-sm px-5">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function validateForm(e){
+        e.preventDefault()
+        // validate your input data here ...
+    }
+</script>
